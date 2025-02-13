@@ -1,12 +1,16 @@
 {
-  "name": "Future-Technical-Assesment-2",
+  "name": "future_technical_assesment-2",
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
-    "elysia": "latest"
+    "@elysiajs/swagger": "^1.2.0",
+    "elysia": "latest",
+    "elysia-helmet": "^2.0.0",
+    "logestic": "^1.2.4",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "bun-types": "latest"
