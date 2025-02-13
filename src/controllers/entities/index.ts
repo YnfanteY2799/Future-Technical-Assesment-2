@@ -1,8 +1,8 @@
-import GetById from "./method/GetById";
-import Create from "./method/Create";
-import Delete from "./method/Delete";
-import Update from "./method/Update";
-import Get from "./method/GetAll";
+import GetById from "./method/GetById.ts";
+import Create from "./method/Create.ts";
+import Delete from "./method/Delete.ts";
+import Update from "./method/Update.ts";
+import Get from "./method/GetAll.ts";
 
 import { Elysia } from "elysia";
 

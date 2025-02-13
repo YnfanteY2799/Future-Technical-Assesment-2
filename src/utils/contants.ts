@@ -1,4 +1,7 @@
+import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
+
+extendZodWithOpenApi(z);
 
 const envSchema = z.object({
   BASE_PORT: z.string().min(4).nonempty(),
