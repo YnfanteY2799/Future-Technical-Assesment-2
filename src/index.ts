@@ -1,7 +1,14 @@
+import { app_port } from "@/utils/contants";
+import { swagger } from "@elysiajs/swagger";
+import { helmet } from "elysia-helmet";
+import { routes } from "@/controllers";
 import { Elysia } from "elysia";
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+const helmetExec = helmet({ contentSecurityPolicy: false, crossOriginResourcePolicy: { policy: "same-site" } });
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+new Elysia({ name: "E-Tickets API", strictPath: true, precompile: true })
+  .use(swagger({ theme: "Dark", version: "0.1", exclude: ["/swagger", "/swagger/json"] }))
+  .get("ping", () => "pong", { tags: ["Test"] })
+  .use(helmetExec)
+  .use(routes)
+  .listen(app_port, ({ url }) => console.log(`🦊 Elisya is Running on ${url}`));
