@@ -1,6 +1,13 @@
 import { type Static, t } from "elysia";
 
-export const CreateEntityDTO = t.Object({});
+export const CreateEntityDTO = t.Object({
+  client_id: t.String(),
+  type: t.Enum({
+    ligth: "ligth",
+    sensor: "sensor",
+    switch: "switch",
+  }),
+});
 
 export type TCreateEntityDTO = Static<typeof CreateEntityDTO>;
 

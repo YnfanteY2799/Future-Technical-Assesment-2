@@ -1,4 +1,5 @@
 import { CommonIDParamsDTO } from "../dtos";
+
 import { Elysia } from "elysia";
 
 export default new Elysia().get(
@@ -6,7 +7,7 @@ export default new Elysia().get(
   async ({ params: { id } }) => {
     try {
 
-      
+
     } catch (e) {
       console.error("Error on create method : ", e);
       throw e;

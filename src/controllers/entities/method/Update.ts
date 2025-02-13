@@ -1,4 +1,5 @@
 import { CommonIDParamsDTO, UpdateEntityDTO } from "../dtos";
+
 import { Elysia } from "elysia";
 
 export default new Elysia().put(
