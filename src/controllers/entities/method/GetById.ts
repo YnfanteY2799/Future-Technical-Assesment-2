@@ -1,4 +1,4 @@
-import { CommonIDParamsDTO } from "../dtos/index.ts";
+import { CommonIDParamsDTO } from "../dtos";
 import { Elysia } from "elysia";
 
 export default new Elysia().get(

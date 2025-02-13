@@ -7,3 +7,5 @@ export const CommonIDParamsDTO = t.Object({
 });
 
 export const UpdateEntityDTO = t.Object({});
+
+export const GetAllQueryDTO = t.Object({});
