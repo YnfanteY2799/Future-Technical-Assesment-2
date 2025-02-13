@@ -6,7 +6,6 @@
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
-    "@asteasolutions/zod-to-openapi": "^7.3.0",
     "@elysiajs/swagger": "^1.2.0",
     "elysia": "latest",
     "elysia-helmet": "^2.0.0",
