@@ -1,3 +1,8 @@
+/**
+ * THis is a function
+ * @param str string that is supposedly a JSON
+ * @returns boolean
+ */
 export function isJsonString(str: string): boolean {
   try {
     JSON.parse(str);
@@ -18,3 +23,5 @@ export function filterMessage(error: string): string {
     return args;
   } else return error;
 }
+
+

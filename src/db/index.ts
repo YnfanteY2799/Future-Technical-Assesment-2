@@ -1,32 +1,26 @@
-const memoryEntities: Array<unknown> = [
-  {
-    entity_id: "light.virtual_light_1",
-    client_id: "client_1",
-    type: "light",
-    data: {
-      state: "on",
-      attributes: {
-        brightness: 150,
-        friendly_name: "Virtual Light 1",
-      },
-    },
-    last_updated: "2023-10-01T12:00:00Z",
-    last_reported: "2023-10-01T12:00:00Z",
-    last_changed: "2023-10-01T12:00:00Z",
-  },
-  {
-    entity_id: "sensor.temperature_sensor_1",
-    client_id: "client_2",
-    type: "sensor",
-    data: {
-      state: "22.5",
-      attributes: {
-        unit_of_measurement: "°C",
-        friendly_name: "Temperature Sensor 1",
-      },
-    },
-    last_updated: "2023-10-01T12:00:00Z",
-    last_reported: "2023-10-01T12:00:00Z",
-    last_changed: "2023-10-01T12:00:00Z",
-  },
-];
+interface IBaseEntity {
+  friendly_name: string;
+  last_reported: string;
+  last_updated: string;
+  last_changed: string;
+  client_id: string;
+  entity_id: string;
+}
+
+export interface ILightEntity extends IBaseEntity {
+  state: "on" | "off";
+  brightness: number;
+  type: "light";
+}
+
+export interface ISensor extends IBaseEntity {
+  unit_of_measurement: string | number;
+  type: "sensor";
+}
+
+export interface ISwitch extends IBaseEntity {
+  state: "on" | "off" | "unavailable";
+  type: "switch";
+}
+
+export const memoryEntities: Array<ILightEntity | ISensor | ISwitch> = [];
