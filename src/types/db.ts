@@ -1,5 +1,5 @@
 export interface IBaseEntity {
-  friendly_name: string;
+  friendly_name?: string;
   last_reported?: string;
   last_updated?: string;
   last_changed?: string;

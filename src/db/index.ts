@@ -1,7 +1,7 @@
 import type { ILightEntity, ISensor, ISwitch } from "@/types/db";
 
 export type MemoryEntity = Array<ILightEntity | ISensor | ISwitch>;
-export type ModifyAction = "Add" | "Delete";
+export type ModifyAction = "Add" | "Delete" | "Update";
 
 let memoryEntities: MemoryEntity = [
   {
@@ -21,13 +21,17 @@ export function getMemoryEntities(): MemoryEntity {
   return memoryEntities;
 }
 
-export function modifyMemoryEntities(newData: MemoryEntity, action: ModifyAction): MemoryEntity {
+export function modifyMemoryEntities(newData: MemoryEntity, action: ModifyAction, id?: string): MemoryEntity {
   switch (action) {
     case "Add":
       memoryEntities = [...memoryEntities, ...newData];
       break;
     case "Delete":
       memoryEntities = newData;
+      break;
+    case "Update":
+      const entityIdx = memoryEntities.findIndex(({ entity_id }) => entity_id === id);
+      memoryEntities[entityIdx] = newData[0];
       break;
     default:
       console.error("No Such Error");

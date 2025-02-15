@@ -26,6 +26,10 @@ export type TCommonIDParamsDTO = Static<typeof CommonIDParamsDTO>;
 export const UpdateEntityDTO = t.Object({
   type: enumType,
   client_id: t.String(),
+  light_body: t.Optional(light_body),
+  sensor_body: t.Optional(sensor_body),
+  switch_body: t.Optional(switch_body),
+  friendly_name: t.Optional(t.String({ minLength: 1 })),
 });
 
 export type TUpdateEntityDTO = Static<typeof UpdateEntityDTO>;

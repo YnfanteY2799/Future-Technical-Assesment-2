@@ -49,6 +49,8 @@ export default new Elysia().post(
           break;
         default:
           throw new BadRequestException("Not a valid type");
+
+        
       }
     } catch (e) {
       console.error("Error on create method : ", e);
