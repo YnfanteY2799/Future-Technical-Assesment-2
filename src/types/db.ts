@@ -10,7 +10,7 @@ export interface IBaseEntity {
 export interface ILightEntity extends IBaseEntity {
   state: "on" | "off";
   brightness: number;
-  type: "light";
+  type: "ligth";
 }
 
 export interface ISensor extends IBaseEntity {
