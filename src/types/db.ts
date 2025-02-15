@@ -1,8 +1,8 @@
 export interface IBaseEntity {
   friendly_name: string;
-  last_reported: string;
-  last_updated: string;
-  last_changed: string;
+  last_reported?: string;
+  last_updated?: string;
+  last_changed?: string;
   client_id: string;
   entity_id: string;
 }

@@ -11,6 +11,7 @@ const switch_body = t.Object({ state: t.Enum({ on: "on", off: "off", unavailable
 export const CreateEntityDTO = t.Object({
   type: enumType,
   client_id: t.String(),
+  friendly_name: t.String(),
   light_body: t.Optional(light_body),
   sensor_body: t.Optional(sensor_body),
   switch_body: t.Optional(switch_body),
@@ -35,7 +36,7 @@ export const GetAllQueryDTO = t.Object({
   entity_id: t.Optional(t.String({ minLength: 1 })),
   size: t.Number({ default: 10 }),
   page: t.Number({ default: 1 }),
-  type: enumType,
+  type: t.Optional(enumType),
 });
 
 export type TGetAllQueryDTO = Static<typeof GetAllQueryDTO>;
