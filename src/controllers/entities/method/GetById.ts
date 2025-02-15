@@ -12,7 +12,7 @@ export default new Elysia().get(
       if (!data) throw new NotFoundException("There are no registers!");
       return data[0];
     } catch (e) {
-      console.error("Error on create method : ", e);
+      console.error("Error on Get By Id method : ", e);
       throw e;
     }
   },

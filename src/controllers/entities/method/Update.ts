@@ -11,7 +11,7 @@ export default new Elysia().put(
 
      
     } catch (e) {
-      console.error("Error on create method : ", e);
+      console.error("Error on Update method : ", e);
       throw e;
     }
   },

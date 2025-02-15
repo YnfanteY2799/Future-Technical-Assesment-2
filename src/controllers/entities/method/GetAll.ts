@@ -20,7 +20,7 @@ export default new Elysia().get(
       if (!data) throw new NotFoundException("There are no registers!");
       return AddMetaData(data, page, data.length, size);
     } catch (e) {
-      console.error("Error on create method : ", e);
+      console.error("Error on Get All method : ", e);
       throw e;
     }
   },
