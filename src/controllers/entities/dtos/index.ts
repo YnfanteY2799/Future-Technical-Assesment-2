@@ -3,7 +3,7 @@ import { type Static, t } from "elysia";
 export const enumType = t.Enum({ ligth: "ligth", sensor: "sensor", switch: "switch" });
 
 export const CreateEntityDTO = t.Object({
-  enumType,
+  type: enumType,
   client_id: t.String(),
 });
 
@@ -16,7 +16,7 @@ export const CommonIDParamsDTO = t.Object({
 export type TCommonIDParamsDTO = Static<typeof CommonIDParamsDTO>;
 
 export const UpdateEntityDTO = t.Object({
-  enumType,
+  type: enumType,
   client_id: t.String(),
 });
 
@@ -28,7 +28,7 @@ export const GetAllQueryDTO = t.Object({
   entity_id: t.Optional(t.String({ minLength: 1 })),
   size: t.Number({ default: 10 }),
   page: t.Number({ default: 1 }),
-  enumType,
+  type: enumType,
 });
 
 export type TGetAllQueryDTO = Static<typeof GetAllQueryDTO>;

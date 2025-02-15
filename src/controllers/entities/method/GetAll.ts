@@ -7,10 +7,10 @@ import { Elysia } from "elysia";
 
 export default new Elysia().get(
   "Get",
-  async ({ query: { enumType, client_id, entity_id, friendly_name, size = 50, page = 1 } }) => {
+  async ({ query: { type, client_id, entity_id, friendly_name, size = 50, page = 1 } }) => {
     try {
-      const data = getMemoryEntities().filter(({ type, client_id: cId, entity_id: eId, friendly_name: fn }) => {
-        if (enumType && type !== enumType) return false;
+      const data = getMemoryEntities().filter(({ type: tp, client_id: cId, entity_id: eId, friendly_name: fn }) => {
+        if (type && tp !== type) return false;
         if (!client_id && !entity_id && !friendly_name) return true;
         if (client_id && cId !== client_id) return false;
         if (entity_id && (!eId || !eId.includes(entity_id))) return false;
