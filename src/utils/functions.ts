@@ -58,4 +58,23 @@ export function AddMetaData<G>(
   };
 }
 
+/**
+ * Secure Nano ID Generator Class
+ * This is a class due to performance Preferences
+ * In The class can be found the
+ */
+export class SecureNanoID {
+  // Pre Computing by pre declaring
+  static #CHARS: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_$@!~";
+  static #CHARS_LENGTH: number = this.#CHARS.length;
 
+  static generate(size = 21): string {
+    const randomValues: Uint8Array<ArrayBuffer> = crypto.getRandomValues(new Uint8Array(size));
+    let id: string = "";
+    for (let i = 0; i < size; i++) {
+      const randomIndex = randomValues[i] % this.#CHARS_LENGTH;
+      id += this.#CHARS[randomIndex];
+    }
+    return id;
+  }
+}
