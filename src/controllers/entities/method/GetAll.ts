@@ -1,7 +1,7 @@
-import { GetAllQueryDTO } from "../dtos";
-import { memoryEntities } from "@/db";
 import { NotFoundException } from "@/utils/error";
 import { AddMetaData } from "@/utils/functions";
+import { GetAllQueryDTO } from "../dtos";
+import { getMemoryEntities } from "@/db";
 
 import { Elysia } from "elysia";
 
@@ -9,7 +9,7 @@ export default new Elysia().get(
   "Get",
   async ({ query: { enumType, client_id, entity_id, friendly_name, size = 50, page = 1 } }) => {
     try {
-      const data = memoryEntities.filter(({ type, client_id: cId, entity_id: eId, friendly_name: fn }) => {
+      const data = getMemoryEntities().filter(({ type, client_id: cId, entity_id: eId, friendly_name: fn }) => {
         if (enumType && type !== enumType) return false;
         if (!client_id && !entity_id && !friendly_name) return true;
         if (client_id && cId !== client_id) return false;
