@@ -1,12 +1,9 @@
 import { type Static, t } from "elysia";
 
 export const CreateEntityDTO = t.Object({
+  type: t.Enum({ ligth: "ligth", sensor: "sensor", switch: "switch" }),
   client_id: t.String(),
-  type: t.Enum({
-    ligth: "ligth",
-    sensor: "sensor",
-    switch: "switch",
-  }),
+  
 });
 
 export type TCreateEntityDTO = Static<typeof CreateEntityDTO>;
@@ -17,7 +14,10 @@ export const CommonIDParamsDTO = t.Object({
 
 export type TCommonIDParamsDTO = Static<typeof CommonIDParamsDTO>;
 
-export const UpdateEntityDTO = t.Object({});
+export const UpdateEntityDTO = t.Object({
+  type: t.Enum({ ligth: "ligth", sensor: "sensor", switch: "switch" }),
+  client_id: t.String(),
+});
 
 export type TUpdateEntityDTO = Static<typeof UpdateEntityDTO>;
 
